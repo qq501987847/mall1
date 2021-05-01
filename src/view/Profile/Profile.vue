@@ -1,17 +1,17 @@
 <template>
-  <div>
-    <h1>我的</h1>
+  <div class="profile">
+    <profile-top></profile-top>
   </div>
 </template>
 
 <script>
+import ProfileTop from "./childComps/ProfileTop";
 export default {
-  name: 'Profile'
-
-}
-
+  name: "Profile",
+  components: {
+    ProfileTop
+  }
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
