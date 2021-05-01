@@ -27,12 +27,15 @@ export default {
     this.$store.commit("getDoc", ownnerDocument);
     // this.docOffsetTop =  ownerDocument.offsetTop
   },
-  computed: {
-    show() {
-      return this.$store.state.showMTB;
+  computed: {},
+  methods: {},
+  watch: {
+    $route: function(to, from) {
+      console.log("我是APP");
+      console.log("to跟from分別是", to, from);
+      this.$store.commit("changeIsActive", to.path);
     }
-  },
-  methods: {}
+  }
 };
 </script>
 

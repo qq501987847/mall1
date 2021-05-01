@@ -26,7 +26,9 @@ export default {
 
   computed: {
     isActive() {
-      // console.log(this.$route.path, this.path)
+      // console.log(this.$route.path);
+      // console.log("下面出场的是vuex的数据");
+      // console.log(this.$store.state.isActivePath);
       return this.$route.path === this.path;
     },
     activeColor() {
@@ -36,10 +38,17 @@ export default {
       return this.isActive ? "#409EFF" : "rgb(198, 226, 255)";
     }
   },
+
   methods: {
     barIsActive() {
       this.$router.replace(this.path);
       window.document.title = this.$route.meta.title;
+    }
+  },
+  watch: {
+    $route: function(to, from) {
+      console.log(to);
+      console.log("我是哪個路由");
     }
   }
 };

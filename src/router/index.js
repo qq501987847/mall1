@@ -19,8 +19,7 @@ const routes = [
     // component: Home,
     meta: {
       title: '首页',
-      mainTabBarShow: true
-
+      mainTabBarShow: true,
     },
     component: Home
     // components: {
@@ -32,8 +31,7 @@ const routes = [
     component: Category,
     meta: {
       title: '分类',
-      mainTabBarShow: true
-
+      mainTabBarShow: true,
     }
   },
   {

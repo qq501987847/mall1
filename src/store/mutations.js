@@ -19,4 +19,12 @@ export default {
     state.maitKey = maitKey
     // console.log(state.maitKey, maitKey)
   },
+  // 接收商品删除改变状态
+  isItemCheck(state, index) {
+    state.carList.splice(index, 1)
+  },
+  // 改变路由样式
+  changeIsActive(state, path) {
+    state.isActivePath = path
+  }
 }

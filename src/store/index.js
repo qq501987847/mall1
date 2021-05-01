@@ -14,14 +14,41 @@ export default new Vuex.Store({
     maitKey: Number,
     // i: 0,
     carList: [],
-    AllSel: false,
-    totalPrice: 0
+    // AllSel: false,
+    totalPrice: 0,
+    isActive: ''
   },
   actions,
   mutations,
   getters: {
+    totalPrice: state => {
+      let AllTotal = 0
+      state.carList.forEach((item) => {
+        if (item.isCheck) {
+          AllTotal += item.count * item.price
+        }
+        console.log(AllTotal)
+      })
+      return AllTotal.toFixed(2)
+    },
+    // 计算是否全选
+    AllSel(state) {
+      let flag = ''
+      state.carList.forEach(item => {
+        if (item.isCheck === false) {
+          flag = false
+          console.log('出现false')
+        } else {
+          flag = true
+          console.log('出现true')
+
+        }
+      })
+      return flag
+    }
 
   },
+
   // mutations: {
   //   // 点击减少特定index商品数量
   //   inCrement(state, index) {

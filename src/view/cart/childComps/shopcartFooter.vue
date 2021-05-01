@@ -8,7 +8,7 @@
             type="checkbox"
             @change="changeAllSel"
             id="allSel"
-            v-model="$store.state.AllSel"
+            v-model="AllSel"
           />
         </form>
       </template>
@@ -42,7 +42,10 @@ export default {
   },
   computed: {
     totalPrice() {
-      return this.$store.state.totalPrice;
+      return this.$store.getters.totalPrice;
+    },
+    AllSel() {
+      return this.$store.getters.AllSel;
     }
   },
   watch: {}

@@ -71,7 +71,8 @@ export default {
       },
       which: "pop",
       busy: false,
-      backTopShow: false
+      backTopShow: false,
+      docOffsetY: ""
     };
   },
   activated() {
@@ -90,11 +91,11 @@ export default {
     // window页面滚动事件，不是home的
     DocScroll() {
       // 获取home的滚动距离
-      let docOffsetY = this.$refs.loading.offsetTop / 2;
+      // console.log(this);
       // 获取doc滚动距离，从VUEX获取document元素
       const docSY = this.$store.state.docEle.documentElement;
       // console.log(docSY.scrollTop, "---", docOffsetY);
-      if (docSY.scrollTop >= docOffsetY) {
+      if (docSY.scrollTop >= this.docOffsetY) {
         //滚动到大于这个距离，就显示backtop
         this.backTopShow = true;
       } else {
@@ -154,15 +155,13 @@ export default {
     // 挂载的时候把VUEX的document元素添加一个事件
     // const ownDoc = this.$store.state.docEle;
     window.addEventListener("scroll", this.DocScroll, true);
+    // 挂载渲染的时候才可以获取
+    this.docOffsetY = this.$refs.loading.offsetTop / 2;
   }
 };
 </script>
 
 <style scoped lang="less">
-body {
-  // height: 100vh;
-  // overflow-y: auto;
-}
 #home {
   margin-top: 44px;
   // width: 100%;
