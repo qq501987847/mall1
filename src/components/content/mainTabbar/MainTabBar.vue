@@ -1,7 +1,7 @@
 <template>
   <div id="maintabbar">
     <tab-bar>
-      <tab-bar-item path="/Home">
+      <tab-bar-item path="/home">
         <template v-slot:item-icon
           ><img src="~tabbar/home.svg" alt=""
         /></template>
@@ -49,7 +49,8 @@ export default {
   components: {
     TabBar,
     TabBarItem
-  }
+  },
+  
 };
 </script>
 

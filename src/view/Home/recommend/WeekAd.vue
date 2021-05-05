@@ -1,7 +1,7 @@
 <template>
   <div class="weekAd">
     <slot name="weekad">
-      <a href="https://act.mogujie.com/zzlx67">
+      <a href="#">
         <img src="~assets/images/weekad.png" alt="">
       </a>
     </slot>

@@ -1,6 +1,6 @@
 
 module.exports = {
-    publicPath: "/",  // 公共路径
+  publicPath: process.env.NODE_ENV ===  'production' ? './' : '/' , // 公共路径
     // baseUrl: './',
     // assetsPublicPath:'./',
     assetsDir: 'static', // 相对于outputDir的静态资源(js、css、img、fonts)目录

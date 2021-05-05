@@ -25,11 +25,18 @@ export default {
   },
 
   computed: {
-    isActive() {
+    isActive: {
+      get () {
+      return this.$route.path === this.path;
+
+      }
+      // set(newV) {
+      //   return newV
+      //   console.log(newV)
+      // }
       // console.log(this.$route.path);
       // console.log("下面出场的是vuex的数据");
       // console.log(this.$store.state.isActivePath);
-      return this.$route.path === this.path;
     },
     activeColor() {
       return this.isActive ? "#fff" : "";
@@ -45,12 +52,18 @@ export default {
       window.document.title = this.$route.meta.title;
     }
   },
-  watch: {
-    $route: function(to, from) {
-      console.log(to);
-      console.log("我是哪個路由");
-    }
-  }
+  // watch: {
+  //   '$route': {
+  //     // deep:true,
+  //     immediate:true,
+  //     handler:function(to, from) {
+  //     // if(to.path === '/home') {
+  //       console.log(this.path,this.$route.path)
+  //       this.isActive = (this.path === this.$route.path)
+  //       console.log(this.isActive)
+  //     // }
+  //   }}
+  // }
 };
 </script>
 

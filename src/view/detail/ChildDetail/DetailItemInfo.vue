@@ -15,7 +15,7 @@
     <!-- 相关福利服务 -->
     <div class="services">
       <span v-for="(item, index) in services" :key="index">
-        <img :src="item.icon"></img>{{ item.name }}
+        <img :src="item.icon">{{ item.name }}
       </span>
     </div>
   </div>
@@ -45,7 +45,7 @@ export default {
 <style scoped lang="less">
 // info组件样式
 .detail-item-info {
-  height: 266px;
+  // height: 266px;
   border-bottom: 3px solid rgb(240, 240, 239);
   padding: 0 20px;
   .title {
@@ -96,6 +96,8 @@ export default {
   .services {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    font-size: 12px;
     line-height: 85px;
     img {
       width: 14px;

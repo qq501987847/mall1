@@ -4,7 +4,7 @@
       {{ detailInfo.desc }}
     </p>
     <ul class="ulImgs">
-      <li v-for="(item, index) in detailInfo.detailImage[0].list">
+      <li v-for="(item, index) in detailInfo.detailImage[0].list" :key="index">
         <img :src="item" alt="" />
       </li>
     </ul>

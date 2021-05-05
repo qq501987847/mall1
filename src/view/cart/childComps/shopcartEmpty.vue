@@ -34,7 +34,7 @@ export default {
   name: "shopcartEmpty",
   methods: {
     backHome() {
-      console.log(this.$router.replace("/home"));
+      this.$router.replace("/home");
     }
   }
 };

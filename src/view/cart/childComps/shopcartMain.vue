@@ -61,34 +61,21 @@ export default {
   },
   methods: {
     removeItem(index, e) {
-      // this.item.isCheck = false;
       this.$store.commit("isItemCheck", index);
-      // UL元素移除LI元素
-      // console.log(e);
-      // 不需要移除了，因为提交改变carList数组该商品移除，
-      //就响应回页面，没数据就不会渲染循环出来
-      // e.path[2].removeChild(e.path[1]);
     }
   },
-  computed: {}
-
-  // props: ["shopInfo"]
-  // beforeMount() {
-  //   this.objData = this.$store.state.obj;
-  //   // console.log(objData);
-  // },
-  // activated() {
-  //   this.objData = this.$store.state.obj;
-  //   // console.log(objData);
-  // }
+  
 };
 </script>
 
 <style scoped lang="less">
 .shopcartMain {
   // height: 100px;
-  margin: 44px 20px;
+  margin: 44px 20px 80px;
+  
   // background-color: orange;
+  // background-color: #fff;
+
 }
 .scUl {
   display: flex;
@@ -131,20 +118,24 @@ export default {
 
   h4 {
     padding-left: 20px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
   }
   span {
-    margin-left: 40px;
+    margin-left: 20px;
     color: red;
     font-size: 20px;
   }
+  p {
+    padding-left:20px;
+  }
   img {
     height: 200px;
+    // min-height: 100px;
   }
   .doubleBtn {
     position: absolute;
-    right: 30px;
-    bottom: 30px;
+    right: 5px;
+    bottom: 10px;
     // width: 100px;
     input {
       width: 30px;

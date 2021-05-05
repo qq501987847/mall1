@@ -52,11 +52,10 @@ export default {
   right: 0;
   left: 0;
   top: 0;
+  z-index: 999999;
   background-color: var(--primary-bg-color);
 }
-.left {
-  /* line-height: 44px; */
-}
+
 .icon {
   /* display: block;
   margin: auto 0; */

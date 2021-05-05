@@ -35,15 +35,15 @@ export default {
     add(maitKey, index) {
       this.$emit("transferKey", maitKey);
       this.$store.commit("transferKey", maitKey);
-      console.log("aside", maitKey);
+      // console.log("aside", maitKey);
       this.liCurrent = index;
     }
   },
   mounted() {
     if (this.aaa > 0) {
       this.add(this.aaa, this.liCurrent);
-      console.log(this.aaa, "judge");
-      console.log("aaa");
+      // console.log(this.aaa, "judge");
+      // console.log("aaa");
     }
   },
   // 自定义指令，让组件挂载点击一次
@@ -63,7 +63,7 @@ export default {
   left: 0;
   top: 44px;
 
-  width: 150px;
+  width: 30%;
   height: 100%;
   // border: 1px solid red;
   text-align: center;

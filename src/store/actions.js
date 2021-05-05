@@ -11,14 +11,14 @@ export default {
         item = i
       }
     }
-    console.log('我是null前', item)
+    // console.log('我是null前', item)
     if (item) {
-      console.log('我是Null')
+      // console.log('我是Null')
       context.commit('addCount', item)
     } else {
       product.count = 1;
       product.isCheck = true
-      console.log('我能进来吗')
+      // console.log('我能进来吗')
       context.commit('addCart', product)
     }
   }

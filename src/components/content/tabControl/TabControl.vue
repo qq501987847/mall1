@@ -1,18 +1,21 @@
 <template>
   <div class="tab-control">
     <slot name="tab-control">
-      <div
+      <a
         v-for="(item, index) in titles"
+        :key="index"
         class="tab-controlItem"
         @click="tabActive(index)"
+        href="#anchor"
       >
         <span :class="{ active: index === currentIndex }">{{ item }}</span>
-      </div>
+      </a>
     </slot>
   </div>
 </template>
 
 <script>
+import Bus from 'components/bus'
 export default {
   name: "TabControl",
   data() {
@@ -33,11 +36,16 @@ export default {
       this.currentIndex = index;
       // 自定义事件
       this.$emit("tabClick", index);
+      Bus.$emit("tabClick",index)
       let _index = index;
       // this.$store.commit("changeShopIndex", _index, true);
       console.log(_index);
     }
-  }
+  },
+  mounted: () => {
+    // 挂载的时候各点击一次
+
+  },
 };
 </script>
 
@@ -56,6 +64,7 @@ export default {
     flex: 1;
     height: 40px;
     line-height: 40px;
+    color: #000;
   }
 }
 .active {

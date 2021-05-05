@@ -29,12 +29,16 @@ export default {
   name: "BackTop",
   methods: {
     backTop() {
-      console.log(11);
-      let top = document.documentElement.scrollTop || document.body.scrollTop;
+      // console.log(11);
+      // let top = document.documentElement.scrollTop || document.body.scrollTop;
       // 实现滚动效果
       const timeTop = setInterval(() => {
-        document.body.scrollTop = document.documentElement.scrollTop = top -= 100;
-        if (top <= 0) {
+        let currentTop = document.documentElement.scrollTop || document.body.scrollTop
+        let step = ( - currentTop) / 10
+        step = Math.floor(step)
+
+        document.body.scrollTop = document.documentElement.scrollTop = currentTop + step ;
+        if (currentTop <= 0) {
           clearInterval(timeTop);
         }
       }, 10);

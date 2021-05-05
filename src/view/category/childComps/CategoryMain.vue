@@ -1,7 +1,7 @@
 <template>
   <div class="category-main" v-if="flag">
     <ul class="subUl">
-      <li class="subLi" v-for="(item, index) in subcategoryList" :key="index">
+      <li class="subLi" @click="toastActive" v-for="(item, index) in subcategoryList" :key="index">
         <img :src="item.image" alt="" />
         <p>{{ item.title }}</p>
       </li>
@@ -22,6 +22,11 @@ export default {
     subcategoryList(newV, oldV) {
       this.flag = true;
       return newV;
+    }
+  },
+  methods: {
+    toastActive() {
+      this.$toast()
     }
   }
 };

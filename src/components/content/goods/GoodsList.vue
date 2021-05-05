@@ -1,8 +1,8 @@
 <template>
   <div class="goods">
-    <slot name="shop-ul">
-      <ul class="shop-ul">
-        <li id="shop-li" v-for="(listItem, index) in goods" :key="index">
+    <!-- <slot name="shop-ul"> -->
+      <ul class="shop-ul"  >
+        <li id="shop-li" v-for="(listItem, index2) in goods" :key="index2">
           <good-list-item :goods="listItem">
             <template v-slot:img>
               <img id="shop-img" :src="listItem.show.img" alt="" />
@@ -19,7 +19,7 @@
           </good-list-item>
         </li>
       </ul>
-    </slot>
+    <!-- </slot> -->
   </div>
 </template>
 
@@ -38,11 +38,20 @@ export default {
   components: {
     GoodListItem
   },
-  methods: {},
+  methods: {
+    // tabClick(index) {
+
+
+    // }
+  },
   computed: {},
   methods: {},
   created() {
     // console.log(this.goods);
+    
+  },
+  mounted() {
+    
   }
 };
 </script>

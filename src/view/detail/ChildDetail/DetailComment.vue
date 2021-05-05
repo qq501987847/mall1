@@ -1,6 +1,6 @@
 <template>
   <div class="detail-comment" v-if="flag">
-    <div class="user" v-for="(item, index) in rate.list">
+    <div class="user" v-for="(item, index) in rate.list" :key="index">
       <div class="userInfo">
         <img :src="item.user.avatar" alt="" />
         <div>
@@ -62,12 +62,7 @@ export default {
       // margin-bottom: 10px;
       // padding-bottom: 10px;
     }
-    h2 {
-      // padding: auto 0;
-
-      // display: inline-block;
-      // margin: 0;
-    }
+    
     span {
       display: inline-block;
       color: grey;

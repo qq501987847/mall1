@@ -55,6 +55,7 @@ export default {
       currentIndex: 0
     };
   },
+  props: ["TabnavCurrent"],
   components: {
     NavBar
   },
@@ -65,6 +66,17 @@ export default {
     },
     current(index) {
       this.currentIndex = index;
+    }
+  },
+  watch: {
+    TabnavCurrent: {
+      // 监听prop的变化要加immediate,简单类型
+      // 复杂类型要加个deep
+      immediate: true,
+      handler(newV) {
+        this.current(newV)
+        // console.log(newV)
+      }
     }
   }
 };

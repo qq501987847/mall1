@@ -27,7 +27,7 @@ export default new Vuex.Store({
         if (item.isCheck) {
           AllTotal += item.count * item.price
         }
-        console.log(AllTotal)
+        // console.log(AllTotal)
       })
       return AllTotal.toFixed(2)
     },

@@ -20,6 +20,7 @@ const routes = [
     meta: {
       title: '首页',
       mainTabBarShow: true,
+      keepAlive: true
     },
     component: Home
     // components: {
@@ -27,7 +28,7 @@ const routes = [
     // }
   },
   {
-    path: '/category',
+    path: '/Category',
     component: Category,
     meta: {
       title: '分类',
@@ -35,12 +36,11 @@ const routes = [
     }
   },
   {
-    path: '/shopcart',
+    path: '/Shopcart',
     component: ShopCart,
     meta: {
       title: '购物车',
-      mainTabBarShow: true
-
+      mainTabBarShow: true,
     }
   },
   {
@@ -48,26 +48,41 @@ const routes = [
     component: Profile,
     meta: {
       title: '个人首页',
-      mainTabBarShow: true
-
+      mainTabBarShow: true,
     }
   },
   {
     path: '/Detail/:iid',
     component: Detail,
     meta: {
-      mainTabBarShow: false
+      mainTabBarShow: false,
     }
 
   }
 ]
 
-
+// export function scrollBehavior (to, from, savedPosition) {
+//   // return 期望滚动到哪个的位置
+//   if (savedPosition) {
+//     return savedPosition
+//   } else {
+//     return { x: 0, y: 0 }
+//   }
+// }
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  // scrollBehavior
 })
-
+// router.beforeEach((to, from, next) => {
+//   console.log(to,'我是谁')
+//   const who = to.path
+//   switch(who) {
+//     case '/home':
+//       // console.log(this)
+//   }
+//   next()
+// })
 export default router

@@ -34,7 +34,7 @@ export default {
   methods: {
     getData(val) {
       this.val = val;
-      console.log("1111", val);
+      // console.log("1111", val);
     }
   },
   created() {
@@ -58,7 +58,7 @@ export default {
       console.log(newV, oldV);
       getSubCategory(newV)
         .then(data => {
-          console.log(data.data.data.list);
+          // console.log(data.data.data.list);
           this.subcategoryList = data.data.data.list;
           // console.log(this.$store.state.maitKey);
         })

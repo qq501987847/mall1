@@ -2,10 +2,53 @@
 
 :root {
   --primary-bg-color: #409EFF;
-  /* min-width: 345px; */
+  min-width: 375px;
   /* width: 100%; */
-  /* max-width: 768px; */
   overflow-x: hidden;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+body {
+  min-width: 375px;
+}
+html {
+  font-size: 62.5%;
+}
+
+@media only screen and (min-width: 481px) {
+  html {
+    font-size: 94% !important;
+  }
+}
+
+@media only screen and (min-width: 561px) {
+  html {
+    font-size: 109% !important;
+  }
+
+}
+
+@media only screen and (min-width: 641px) {
+  html {
+    font-size: 125% !important;
+  }
+}
+
+body {
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+
+p {
+  font-size: 14px;
+  font-size: 1.4rem;
 }
 
 ul {
@@ -13,6 +56,7 @@ ul {
   padding: 0;
   list-style: none
 }
+
 a {
   text-decoration: none;
 }

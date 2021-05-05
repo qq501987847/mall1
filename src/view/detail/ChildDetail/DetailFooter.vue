@@ -1,6 +1,6 @@
 <template>
   <div class="detail-footer" v-if="Object.keys(shopcart).length !== 0">
-    <div class="inshop">
+    <div class="inshop" @click="showToast">
       <span>
         <svg
           t="1619620461008"
@@ -34,7 +34,7 @@
           ></path></svg></span
       ><span class="name">客服</span>
     </div>
-    <div class="inshop">
+    <div class="inshop" @click="showToast">
       <span>
         <svg
           t="1619620257439"
@@ -53,7 +53,7 @@
           ></path></svg></span
       ><span class="name">店铺</span>
     </div>
-    <div class="inshop">
+    <div class="inshop" @click="showToast">
       <span>
         <svg
           t="1619620511994"
@@ -73,10 +73,10 @@
       ><span class="name">收藏</span>
     </div>
     <div class="addShopCar" @click="addShopCar">加入购物车</div>
-    <div class="immediateBuy">立即购买</div>
+    <div class="immediateBuy" @click="showToast">立即购买</div>
     <!-- 右下角购物车 -->
     <div class="shopCarBtn">
-      <span class="sum">{{ $store.state.carList.length ? ". . ." : 0 }}</span>
+      <span class="sum">{{ $store.state.carList.length ? "..." : 0 }}</span>
       <button @click="goShopcart">
         <svg
           t="1619698374757"
@@ -96,15 +96,6 @@
         </svg>
       </button>
     </div>
-    <!-- <transition name="fade"> -->
-    <div
-      class="addShopCarsuccess"
-      :class="isAnimation ? 'Anim' : ''"
-      @animationend="isAnimation = false"
-    >
-      购物车 + 1
-    </div>
-    <!-- </transition> -->
   </div>
 </template>
 
@@ -123,7 +114,11 @@ export default {
     },
     addShopCar() {
       this.$emit("addCar");
+      this.$toast('购物车+1')
       // console.log("给DETAIL主组件");
+    },
+    showToast() {
+      this.$toast('很抱歉，功能还未完善')
     }
   }
 };

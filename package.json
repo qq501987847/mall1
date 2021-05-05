@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "lint": "eslint --ext .js,.ts,.tsx test/ src/"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -24,8 +25,10 @@
     "@vue/cli-service": "~4.5.0",
     "css-loader": "^3.6.0",
     "file-loader": "^4.3.0",
+    "less": "^4.1.1",
     "less-loader": "^4.1.0",
     "style-loader": "^2.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^2.3.0",
     "vue-template-compiler": "^2.6.11"
   },

@@ -48,7 +48,7 @@ export default {
   computed: {},
   watch: {
     shopInfo(newV, oldV) {
-      console.log("info子听----------", newV);
+      // console.log("info子听----------", newV);
       // this.lighLow = true
       this.flag = true;
       return newV;
@@ -106,22 +106,24 @@ export default {
       flex: 2;
       display: flex;
       flex-flow: column nowrap;
-      padding-left: 50px;
+      // padding-left: 40px;
       justify-content: space-around;
       text-align: center;
       // align-items: space-around;
       span {
         // margin-right: 40px;
         display: inline-block;
-        width: 80px;
-        font-size: 20px;
+        width: 30%;
+        font-size: 1rem;
+        font-weight: 700;
+        // font-size: 100%;
         // justify-content: space-around;
         // margin: auto 0;
         // height: 33.33%;
       }
       .scoreBetter {
-        width: 25px;
-        margin-left: 20px;
+        width: 20px;
+        margin-left: 10px;
         color: #fff;
         // background-color: red;
       }

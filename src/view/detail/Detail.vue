@@ -1,6 +1,6 @@
 <template>
   <div class="Detail">
-    <detail-tab-nav></detail-tab-nav>
+    <detail-tab-nav :TabnavCurrent="TabnavCurrent"></detail-tab-nav>
     <detail-swiper id="a0" :banners="banners"></detail-swiper>
     <detail-item-info
       :itemInfo="itemInfo"
@@ -14,8 +14,8 @@
       ref="itemParams"
       :itemParams="itemParams"
     ></detail-params>
-    <detail-comment id="a2" :rate="rate"></detail-comment>
-    <detail-recommend id="a3" :recommend="recommend"></detail-recommend>
+    <detail-comment id="a2" ref="comment" :rate="rate"></detail-comment>
+    <detail-recommend id="a3" ref="recommend" :recommend="recommend"></detail-recommend>
     <detail-footer :shopcart="shopcart" @addCar="addCar"></detail-footer>
     <back-top class="backTop" v-if="backTopShow">111</back-top>
   </div>
@@ -51,7 +51,9 @@ export default {
       rate: [],
       recommend: [],
       shopcart: {},
-      backTopShow: false
+      backTopShow: false,
+      // 滚动事件让导航栏样式跟着变化
+      TabnavCurrent:0,
     };
   },
   components: {
@@ -106,12 +108,43 @@ export default {
     getRecommend().then(data => {
       // console.log("data---", data.data.data);
       this.recommend = data.data.data.list;
-      console.log(this.recommend);
+      // console.log(this.recommend);
     });
-    // backTop事件
+    
+
   },
+  mounted() {
+    // 滚动事件
+    window.addEventListener('scroll',this.handleScroll)
+  },
+  // 离开组件时销毁滚动事件
+  beforeDestroy() {
+    // console.log(this.handleScroll)
+    window.removeEventListener('scroll',this.handleScroll)
+  },
+  
 
   methods: {
+    handleScroll()  {
+      let bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      // if(bodyScrollTop >= )
+      // console.log(this.$refs)
+      let comment = this.$refs.comment.$el.offsetTop
+      let recommend = this.$refs.recommend.$el.offsetTop
+      let itemParams = this.$refs.itemParams.$el.offsetTop
+      // console.log(comment,recommend,itemParams)
+      // console.log(this.$refs.comment)
+      if(bodyScrollTop >= itemParams) {
+        this.TabnavCurrent = 1
+      }
+      if(bodyScrollTop >= comment) {
+        this.TabnavCurrent = 2
+      }
+      if(bodyScrollTop >= recommend) {
+        this.TabnavCurrent = 3
+      }
+
+    },
     // 接收detailfooter发过来的事件
     addCar() {
       // console.log("我detail接受到了");

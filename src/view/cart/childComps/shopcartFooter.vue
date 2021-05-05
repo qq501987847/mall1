@@ -28,7 +28,7 @@ export default {
   name: "shopcartFooter",
   data() {
     return {
-      checked: ""
+      // flag: 
     };
   },
   components: {
@@ -38,14 +38,23 @@ export default {
     changeAllSel() {
       // 全选提交给VUEX
       // if(this.$store.state.CarList)
-    }
+    },
+    
   },
   computed: {
     totalPrice() {
       return this.$store.getters.totalPrice;
     },
-    AllSel() {
+    AllSel:{
+      get() {
+        
+      // console.log(newV)
       return this.$store.getters.AllSel;
+      },
+      // 主动修改赋值计算属性需要设置set
+      set(v) {
+        this.$store.commit('allsel',v)
+      }
     }
   },
   watch: {}
@@ -59,31 +68,40 @@ export default {
   left: 0;
   bottom: 50px;
   padding: 3px;
+  // height: 50px;
   background-color: #fff;
   // border: 1px solid rebeccapurple;
 }
 /deep/ .left {
   margin-left: 10px;
+  flex:2;
+  text-align: left;
   // height: 50px;
 }
+
 /deep/ .right {
-  width: 350px;
+  flex: 5;
   display: flex;
   // padding: 3px;
   .total {
     flex: 1;
+    // height: 20px;
+    align-self: center;
   }
   .allPrice {
     color: red;
     flex: 1;
+    // height: 20px;
+    align-self: center;
   }
   .submitOrder {
     border-radius: 16px;
     flex: 3;
     // padding: 8px 34px;
     // line-height: 80%;
-    height: 80%;
+    height: 3rem;
     border: 0;
+    // padding:20px;
     // align-self: center;
     margin: auto 20px;
     // padding: 5px;

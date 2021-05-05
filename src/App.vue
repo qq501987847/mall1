@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <!-- <keep-alive> -->
-    <router-view> </router-view>
-    <!-- </keep-alive> -->
+    <keep-alive >
+    <router-view v-if="$route.meta.keepAlive"> </router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.keepAlive"> </router-view>
 
     <main-tab-bar v-if="$route.meta.mainTabBarShow"></main-tab-bar>
   </div>
@@ -31,8 +32,8 @@ export default {
   methods: {},
   watch: {
     $route: function(to, from) {
-      console.log("我是APP");
-      console.log("to跟from分別是", to, from);
+      // console.log("我是APP");
+      // console.log("to跟from分別是", to, from);
       this.$store.commit("changeIsActive", to.path);
     }
   }
